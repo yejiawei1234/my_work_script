@@ -14,7 +14,7 @@ __author__ = 'Yejiawei'
 
 _options = ['dir=', 'timespan=', 'prename=']
 
-_short_options = 'd:t:p'
+_short_options = 'd:t:p:'
 try:
     opts, args = getopt.getopt(sys.argv[1:], _short_options, _options)
 except getopt.GetoptError as e:
@@ -83,9 +83,6 @@ def checkprename(prename):
         print('your prename is default {}'.format(_prename))
         return _prename
 
-dirpath = findworkdir(conf.get('dir'))
-timespan = checktime(conf.get('timespan'))
-prename = checkprename(conf.get('prename'))
 
 
 def timeit(func):
@@ -94,7 +91,7 @@ def timeit(func):
         p = func(*args, **kwargs)
         end_time = time.time()
         span = end_time - start_time
-        print(span)
+        print("It takes {:04.2f}s".format(span))
         return p
     return wapper
 
@@ -117,4 +114,8 @@ def changefilename(timespan, dirpath, prename):
 
 
 if __name__ == "__main__":
+    dirpath = findworkdir(conf.get('dir'))
+    timespan = checktime(conf.get('timespan'))
+    prename = checkprename(conf.get('prename'))
     changefilename(timespan=timespan, dirpath=dirpath, prename=prename)
+
