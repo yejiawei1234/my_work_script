@@ -1,16 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
-import sys
-import os
-import glob
-import pandas as pd
-import datetime
-import getopt
-import click
-__version__ = '0.1'
-__author__ = 'Yejiawei'
-
 import getopt
 import os
 import datetime
@@ -18,6 +7,10 @@ import pandas as pd
 import glob
 import sys
 import time
+
+__version__ = '0.1'
+__author__ = 'Yejiawei'
+
 
 _options = ['dir=', 'timespan=', 'prename=']
 
